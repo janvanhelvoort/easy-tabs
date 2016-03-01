@@ -1,7 +1,8 @@
 {
   "name": "easy-tabs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easy react tab component",
+  "keywords": ["react", "tabs"],
   "main": "index.js",
   "dependencies": {
     "classnames": "^2.2.3",
@@ -12,5 +13,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jan van Helvoort <janvanhelvoort@outlook.com>",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/janvanhelvoort/easy-tabs.git"
+  }
 }
