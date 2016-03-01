@@ -1,0 +1,44 @@
+# easy-tabs
+Easy react tab component.
+
+## Installing
+
+```bash
+$ npm install react-tabs
+```
+
+## Example
+
+```js
+
+var React = require('react');
+var EasyTabs = require('easy-tabs');
+var Tabs = EasyTabs.Tabs;
+var TabList = EasyTabs.TabList;
+var Tab = EasyTabs.Tab;
+var PanelContainer = EasyTabs.PanelContainer;
+var Panel = EasyTabs.Panel;
+
+<Tabs className="tabs" currentTab={1}>
+    <TabList className="tabs__list">
+        <Tab className="tabs__item">tab 0.1</Tab>
+        <Tab className="tabs__item">tab 0.1</Tab>
+        <Tab className="tabs__item">tab 0.1</Tab>
+    </TabList>
+    <PanelContainer className="tabs__container">
+        <Panel className="tabs__content">
+            <p>Hello World from tab 0.1</p>
+        </Panel>
+        <Panel className="tabs__content">
+            <p>Hello World from tab 0.1</p>
+        </Panel>
+        <Panel className="tabs__content">
+            <p>Hello World from tab 0.1</p>
+        </Panel>
+    </PanelContainer>
+</Tabs> 
+
+```
+## License
+
+MIT
