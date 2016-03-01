@@ -1,0 +1,16 @@
+{
+  "name": "easy-tabs",
+  "version": "0.1.0",
+  "description": "Easy react tab component",
+  "main": "index.js",
+  "dependencies": {
+    "classnames": "^2.2.3",
+    "react": "^0.14.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jan van Helvoort <janvanhelvoort@outlook.com>",
+  "license": "ISC"
+}
