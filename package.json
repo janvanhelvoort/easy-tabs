@@ -1,6 +1,6 @@
 {
   "name": "easy-tabs",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "Easy react tab component",
   "keywords": ["react", "tabs"],
   "main": "index.js",
