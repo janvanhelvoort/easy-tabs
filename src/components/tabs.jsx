@@ -48,7 +48,7 @@ module.exports = Tabs = React.createClass({
 
     render: function(){       
         return (
-            <div className={classNames(this.props.className)}> 
+            <div className={classNames(this.props.className)} {...this.props}> 
                 {this.props.children}
             </div>           
          );

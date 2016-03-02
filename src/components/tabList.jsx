@@ -21,7 +21,7 @@ module.exports = TabList = React.createClass({
   
     render: function() {
         return (
-            <ul className={ classNames( this.props.className) }>
+            <ul className={ classNames( this.props.className) } {...this.props}>
                 { React.Children.map(this.props.children, (child, index) => {
                     return React.cloneElement(child, { id: index, selected: index === this.context.currentTab, handleClick: this.onClick });
                     }, this)                    

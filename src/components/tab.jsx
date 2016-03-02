@@ -27,7 +27,7 @@ module.exports = Tab = React.createClass({
 
     render: function() {
         return (
-            <li className={classNames(this.props.className, { [this.context.activeClassName]: this.props.selected })}  onClick={this.onClick}>                
+            <li className={classNames(this.props.className, { [this.context.activeClassName]: this.props.selected })} onClick={this.onClick}>                
                 { this.props.children }                
             </li>                                  
         );
