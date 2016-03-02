@@ -2,7 +2,7 @@
 Easy react tab component.
 
 #### Note
-This component has no default styling. Default styling can be downloaded from [main.css](example/main.css)
+This component has no default styling, all classNames are optional. Default styling can be downloaded from [main.css](example/main.css)
 
 ## Installing
 
