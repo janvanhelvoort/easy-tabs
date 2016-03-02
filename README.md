@@ -22,21 +22,21 @@ var Tab = EasyTabs.Tab;
 var PanelContainer = EasyTabs.PanelContainer;
 var Panel = EasyTabs.Panel;
 
-<Tabs className="tabs" currentTab={1} activeClassName="is-active">
+<Tabs className="tabs" defaultTab={1} activeClassName="is-active">
     <TabList className="tabs__list">
         <Tab className="tabs__item">tab 0.1</Tab>
-        <Tab className="tabs__item">tab 0.1</Tab>
-        <Tab className="tabs__item">tab 0.1</Tab>
+        <Tab className="tabs__item">tab 0.2</Tab>
+        <Tab className="tabs__item">tab 0.3</Tab>
     </TabList>
     <PanelContainer className="tabs__container">
         <Panel className="tabs__content">
             <p>Hello World from tab 0.1</p>
         </Panel>
         <Panel className="tabs__content">
-            <p>Hello World from tab 0.1</p>
+            <p>Hello World from tab 0.2</p>
         </Panel>
         <Panel className="tabs__content">
-            <p>Hello World from tab 0.1</p>
+            <p>Hello World from tab 0.3</p>
         </Panel>
     </PanelContainer>
 </Tabs> 

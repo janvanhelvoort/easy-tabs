@@ -4,7 +4,7 @@ var classNames = require('classnames');
 module.exports = PanelContainer = React.createClass({
     displayName: "PanelContainer",
     contextTypes: {
-        currentTab: React.PropTypes.number.isRequired,
+        currentTabIndex: React.PropTypes.number.isRequired,
     },
     propTypes: {
         className: React.PropTypes.string,
@@ -18,7 +18,7 @@ module.exports = PanelContainer = React.createClass({
         return (
             <div className={classNames( this.props.className)} {...this.props}> 
                  { React.Children.map(this.props.children, (child, index) => {           
-                    return React.cloneElement(child, { id: index, selected: index === this.context.currentTab });
+                    return React.cloneElement(child, { id: index, selected: index === this.context.currentTabIndex });
                 }, this) }
             </div>
          );

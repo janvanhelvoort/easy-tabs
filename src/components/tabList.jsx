@@ -4,7 +4,7 @@ var classNames = require('classnames');
 module.exports = TabList = React.createClass({
     displayName: 'TabList',
     contextTypes: {
-        currentTab: React.PropTypes.number.isRequired,
+        currentTabIndex: React.PropTypes.number.isRequired,
         setSelected: React.PropTypes.func.isRequired
     },    
     propTypes: {
@@ -16,14 +16,14 @@ module.exports = TabList = React.createClass({
     },
 
     onClick: function(index) {
-        this.context.setSelected(index);
+        this.context.setSelected(index + 1);
     },
   
     render: function() {
         return (
             <ul className={ classNames( this.props.className) } {...this.props}>
                 { React.Children.map(this.props.children, (child, index) => {
-                    return React.cloneElement(child, { id: index, selected: index === this.context.currentTab, handleClick: this.onClick });
+                    return React.cloneElement(child, { id: index, selected: index === this.context.currentTabIndex, handleClick: this.onClick });
                     }, this)                    
                 }
             </ul>
