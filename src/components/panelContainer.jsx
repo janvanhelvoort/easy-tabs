@@ -6,6 +6,13 @@ module.exports = PanelContainer = React.createClass({
     contextTypes: {
         currentTab: React.PropTypes.number.isRequired,
     },
+    propTypes: {
+        className: React.PropTypes.string,
+        children: React.PropTypes.oneOfType([
+            React.PropTypes.array,
+            React.PropTypes.object
+        ])
+    },
 
     render: function(){              
         return (

@@ -10,8 +10,8 @@ module.exports = TabList = React.createClass({
     propTypes: {
         className: React.PropTypes.string,
         children: React.PropTypes.oneOfType([
-            React.PropTypes.object,
-            React.PropTypes.array
+            React.PropTypes.array,
+            React.PropTypes.object
         ])
     },
 
