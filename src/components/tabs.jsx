@@ -13,8 +13,8 @@ module.exports = Tabs = React.createClass({
         className: React.PropTypes.string,
         activeClassName: React.PropTypes.string,
         children: React.PropTypes.oneOfType([
-            React.PropTypes.object,
-            React.PropTypes.array
+            React.PropTypes.array,
+            React.PropTypes.object
         ])
     },
     childContextTypes: {
@@ -25,8 +25,23 @@ module.exports = Tabs = React.createClass({
     getChildContext: function() {
         return { activeClassName: this.props.activeClassName || "is-active", currentTab: this.state.currentTab, setSelected: this.setSelected };
     },
+    componentDidMount: function() {                
+        this.isValid();
     },
 
+    isValid: function() {
+        if(React.Children.count(this.props.children) === 2){
+            if(React.Children.count(this.props.children[0].props.children) === React.Children.count(this.props.children[1].props.children)){
+                if(this.props.currentTab > React.Children.count(this.props.children[0].props.children)){
+                    this.setState({ currentTab: 0 });
+                }
+            } else {
+                throw new Error("There should be an equal number of <Tab/> and <Panel/> components.")
+            }
+        } else {
+            throw new Error("There should be exactly one of each <TabList/> and <PanelContainer/> component.");
+        }                                    
+    },
     setSelected: function(index) {
         this.setState({ currentTab: index });
     },
