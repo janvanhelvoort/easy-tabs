@@ -15,11 +15,11 @@ module.exports = Panel = React.createClass({
             React.PropTypes.string
         ])
     },    
-    getDefaultProps() {
+    getDefaultProps: function() {
         return { selected: false };
     },
   
-    render: function(){       
+    render: function(){    
         return (
             <div className={ classNames( this.props.className, { [this.context.activeClassName]: this.props.selected })}>
              { this.props.children }

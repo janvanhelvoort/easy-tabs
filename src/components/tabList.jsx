@@ -19,7 +19,7 @@ module.exports = TabList = React.createClass({
         this.context.setSelected(index);
     },
   
-    render() {
+    render: function() {
         return (
             <ul className={ classNames( this.props.className) }>
                 { React.Children.map(this.props.children, (child, index) => {
