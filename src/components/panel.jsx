@@ -22,7 +22,7 @@ module.exports = Panel = React.createClass({
     render: function(){    
         return (
             <div className={ classNames( this.props.className, { [this.context.activeClassName]: this.props.selected })}>
-             { this.props.children }
+                { this.props.children }
             </div>           
          );
     }
