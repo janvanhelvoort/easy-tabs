@@ -4,7 +4,7 @@ Easy react tab component.
 ## Installing
 
 ```bash
-$ npm install react-tabs
+$ npm install easy-tabs
 ```
 
 ## Example
