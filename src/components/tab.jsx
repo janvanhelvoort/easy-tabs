@@ -3,7 +3,9 @@ var classNames = require('classnames');
 
 module.exports = Tab = React.createClass({
     displayName: 'Tab',
-
+    contextTypes: {
+        activeClassName: React.PropTypes.string.isRequired
+    }, 
     propTypes: {
         className: React.PropTypes.string,
         id: React.PropTypes.number.isRequired,
@@ -26,10 +28,8 @@ module.exports = Tab = React.createClass({
 
     render() {
         return (
-            <li className={classNames(this.props.className)}>
-                <a className={classNames('tabs__link', { 'is-active': this.props.selected }) } onClick={this.onClick} >
-                    { this.props.children }
-                </a>
+            <li className={classNames(this.props.className, { [this.context.activeClassName]: this.props.selected })}  onClick={this.onClick}>                
+                { this.props.children }                
             </li>                                  
         );
     }

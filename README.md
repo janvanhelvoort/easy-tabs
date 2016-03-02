@@ -19,7 +19,7 @@ var Tab = EasyTabs.Tab;
 var PanelContainer = EasyTabs.PanelContainer;
 var Panel = EasyTabs.Panel;
 
-<Tabs className="tabs" currentTab={1}>
+<Tabs className="tabs" currentTab={1} activeClassName="is-active">
     <TabList className="tabs__list">
         <Tab className="tabs__item">tab 0.1</Tab>
         <Tab className="tabs__item">tab 0.1</Tab>
