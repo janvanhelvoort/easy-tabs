@@ -5,7 +5,7 @@ module.exports = Tabs = React.createClass({
     displayName: "Tabs",
     getInitialState: function () {        
         return {
-            currentTab: this.props.currentTab || 0
+            currentTab: this.props.currentTab - 1 || 0
         };
     },
     propTypes: {
