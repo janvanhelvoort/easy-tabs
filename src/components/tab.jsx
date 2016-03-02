@@ -8,7 +8,7 @@ module.exports = Tab = React.createClass({
     }, 
     propTypes: {
         className: React.PropTypes.string,
-        id: React.PropTypes.number.isRequired,
+        id: React.PropTypes.number,
         selected: React.PropTypes.bool,   
         children: React.PropTypes.oneOfType([
             React.PropTypes.array,
@@ -16,9 +16,8 @@ module.exports = Tab = React.createClass({
             React.PropTypes.string
         ])
     },
-
-    getDefaultProps() {
-        return { selected: false };
+    getDefaultProp: function() {
+        return { selected: false, id: null };
     },
 
     onClick: function(event) {
