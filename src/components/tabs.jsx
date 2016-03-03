@@ -33,7 +33,7 @@ module.exports = Tabs = React.createClass({
     isValid: function() {
         if(React.Children.count(this.props.children) === 2){
             if(React.Children.count(this.props.children[0].props.children) === React.Children.count(this.props.children[1].props.children)){
-                if(this.isValidTabNumber(this.props.defaultTab)){
+                if(!this.isValidTabNumber(this.props.defaultTab)){
                     this.setState({ currentTabIndex: 0 });
                 }
             } else {
