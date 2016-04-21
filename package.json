@@ -20,7 +20,8 @@
     "react": "^15.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel --presets es2015,react -d dist/ src/",
+    "prepublish": "npm run compile"
   },
   "author": "Jan van Helvoort <janvanhelvoort@outlook.com>",
   "license": "MIT",
