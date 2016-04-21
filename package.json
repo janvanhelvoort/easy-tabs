@@ -6,7 +6,7 @@
     "react",
     "tabs"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
     "classnames": "^2.2.3"
   },
