@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = Tab = React.createClass({
+var Tab = React.createClass({
     displayName: 'Tab',
     contextTypes: {
         activeClassName: React.PropTypes.string.isRequired
@@ -33,3 +33,5 @@ module.exports = Tab = React.createClass({
         );
     }
 });
+
+module.exports = Tab;

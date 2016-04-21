@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = Tabs = React.createClass({
+var Tabs = React.createClass({
     displayName: "Tabs",
     getInitialState: function () {        
         return {
@@ -74,3 +74,5 @@ module.exports = Tabs = React.createClass({
          );
     }
 });
+
+module.exports = Tabs

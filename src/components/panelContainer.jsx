@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = PanelContainer = React.createClass({
+var PanelContainer = React.createClass({
     displayName: "PanelContainer",
     contextTypes: {
         currentTabIndex: React.PropTypes.number.isRequired,
@@ -24,3 +24,5 @@ module.exports = PanelContainer = React.createClass({
          );
     }
 });
+
+module.exports = PanelContainer;

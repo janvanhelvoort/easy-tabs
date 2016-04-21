@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = TabList = React.createClass({
+var TabList = React.createClass({
     displayName: 'TabList',
     contextTypes: {
         currentTabIndex: React.PropTypes.number.isRequired,
@@ -30,3 +30,5 @@ module.exports = TabList = React.createClass({
         );
     }
 });
+
+module.exports = TabList;

@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-module.exports = Panel = React.createClass({
+var Panel = React.createClass({
     displayName: "Panel",
     contextTypes: {
         activeClassName: React.PropTypes.string.isRequired
@@ -27,3 +27,5 @@ module.exports = Panel = React.createClass({
          );
     }
 });
+
+module.exports = Panel;
