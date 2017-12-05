@@ -17,11 +17,12 @@
   },
   "devDependencies": {
     "babel-cli": "^6.7.7",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1"
   },
   "scripts": {
-    "compile": "babel --presets env,react -d dist/ src/",
+    "compile": "babel --plugins transform-object-rest-spread --presets env,react -d dist/ src/",
     "prepublish": "npm run compile"
   },
   "author": "Jan van Helvoort <janvanhelvoort@outlook.com>",
