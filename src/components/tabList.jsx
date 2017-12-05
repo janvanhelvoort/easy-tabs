@@ -1,25 +1,19 @@
-var React = require('react');
-var classNames = require('classnames');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-var TabList = React.createClass({
-    displayName: 'TabList',
-    contextTypes: {
-        currentTabIndex: React.PropTypes.number.isRequired,
-        setSelected: React.PropTypes.func.isRequired
-    },    
-    propTypes: {
-        className: React.PropTypes.string,
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.array,
-            React.PropTypes.object
-        ])
-    },
+export default class TabList extends Component {
+    constructor(props) {
+        super(props);
 
-    onClick: function(index) {
+        this.onClick = this.onClick.bind(this);
+    }
+    
+    onClick(index) {
         this.context.setSelected(index + 1);
-    },
-  
-    render: function() {
+    }
+
+    render(){
         return (
             <ul className={ classNames( this.props.className) } {...this.props}>
                 { React.Children.map(this.props.children, (child, index) => {
@@ -29,6 +23,9 @@ var TabList = React.createClass({
             </ul>
         );
     }
-});
+}
 
-module.exports = TabList;
+TabList.contextTypes = {    
+    currentTabIndex: PropTypes.number.isRequired,
+    setSelected: PropTypes.func.isRequired
+};

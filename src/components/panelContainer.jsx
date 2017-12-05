@@ -1,20 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-var PanelContainer = React.createClass({
-    displayName: "PanelContainer",
-    contextTypes: {
-        currentTabIndex: React.PropTypes.number.isRequired,
-    },
-    propTypes: {
-        className: React.PropTypes.string,
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.array,
-            React.PropTypes.object
-        ])
-    },
-
-    render: function(){              
+export default class PanelContainer extends Component {
+    render(){
         return (
             <div className={classNames( this.props.className)} {...this.props}> 
                  { React.Children.map(this.props.children, (child, index) => {           
@@ -23,6 +12,16 @@ var PanelContainer = React.createClass({
             </div>
          );
     }
-});
+}
 
-module.exports = PanelContainer;
+PanelContainer.contextTypes = {
+    currentTabIndex: PropTypes.number.isRequired
+}
+
+PanelContainer.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object
+    ])
+}

@@ -1,39 +1,34 @@
-var React = require('react');
-var classNames = require('classnames');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-var Tabs = React.createClass({
-    displayName: "Tabs",
-    getInitialState: function () {        
-        return {
+export default class Tabs extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
             currentTabIndex: this.props.defaultTab - 1 || 0
-        };
-    },
-    propTypes: {
-        defaultTab: React.PropTypes.number,
-        className: React.PropTypes.string,
-        activeClassName: React.PropTypes.string,
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.array,
-            React.PropTypes.object
-        ]),
-        onSelect: React.PropTypes.func
-    },
-    childContextTypes: {
-        activeClassName: React.PropTypes.string,
-        currentTabIndex: React.PropTypes.number.isRequired,
-        setSelected: React.PropTypes.func.isRequired
-    },
-    getChildContext: function() {
-        return { activeClassName: this.props.activeClassName || "is-active", currentTabIndex: this.state.currentTabIndex, setSelected: this.setSelected };
-    },
-    componentDidMount: function() {                
-        this.isValid();
-    },
+        }
 
-    isValid: function() {
-        if(React.Children.count(this.props.children) === 2){
-            if(React.Children.count(this.props.children[0].props.children) === React.Children.count(this.props.children[1].props.children)){
-                if(!this.isValidTabNumber(this.props.defaultTab)){
+        this.setSelected = this.setSelected.bind(this);
+    }
+
+    getChildContext() {
+        return {
+            activeClassName: this.props.activeClassName || "is-active",
+            currentTabIndex: this.state.currentTabIndex,
+            setSelected: this.setSelected
+        };
+    }
+
+    componentDidMount() {
+        this.isValid();
+    }
+
+    isValid() {
+        if (React.Children.count(this.props.children) === 2) {
+            if (React.Children.count(this.props.children[0].props.children) === React.Children.count(this.props.children[1].props.children)) {
+                if (!this.isValidTabNumber(this.props.defaultTab)) {
                     this.setState({ currentTabIndex: 0 });
                 }
             } else {
@@ -41,16 +36,18 @@ var Tabs = React.createClass({
             }
         } else {
             throw new Error("There should be exactly one of each <TabList/> and <PanelContainer/> component.");
-        }                                    
-    },
-    isValidTabNumber: function(tabNumber) {
+        }
+    }
+
+    isValidTabNumber(tabNumber) {
         return (tabNumber > 0 && tabNumber <= React.Children.count(this.props.children[0].props.children));
-    }, 
-    setSelected: function(tabNumber) {
+    }
+
+    setSelected(tabNumber) {
         if (!this.isValidTabNumber(tabNumber)) {
             throw new Error("Tried to selected a non-existing tab.");
         }
-        
+
         var newTabIndex = tabNumber - 1;
         if (newTabIndex != this.state.currentTabIndex) {
             var abort = false;
@@ -61,18 +58,36 @@ var Tabs = React.createClass({
                 this.setState({ currentTabIndex: newTabIndex });
             }
         }
-    },
-    getSelected: function() {
-        return this.state.currentTabIndex + 1;
-    },
-
-    render: function(){       
-        return (
-            <div className={classNames(this.props.className)} {...this.props}> 
-                {this.props.children}
-            </div>           
-         );
     }
-});
 
-module.exports = Tabs
+    getSelected() {
+        return this.state.currentTabIndex + 1;
+    }
+
+    render() {
+        const { defaultTab, activeClassName, ...props } = this.props
+
+        return (
+            <div className={classNames(props.className)} {...props}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+Tabs.childContextTypes = {
+    activeClassName: PropTypes.string,
+    currentTabIndex: PropTypes.number.isRequired,
+    setSelected: PropTypes.func.isRequired
+};
+
+Tabs.propTypes = {
+    defaultTab: PropTypes.number,
+    className: PropTypes.string,
+    activeClassName: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object
+    ]),
+    onSelect: PropTypes.func
+}

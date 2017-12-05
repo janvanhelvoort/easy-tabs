@@ -1,7 +1,7 @@
-module.exports = {
-    Tabs: require('./components/tabs'),
-    TabList: require('./components/tabList'),
-    Tab: require('./components/tab'),
-    PanelContainer: require('./components/panelContainer'),
-    Panel: require('./components/panel')
-}
+import Tabs from './components/tabs';
+import TabList from './components/tabList';
+import Tab from './components/tab';
+import PanelContainer from './components/panelContainer';
+import Panel from './components/panel';
+
+export { Tabs, TabList, Tab, PanelContainer, Panel }

@@ -1,37 +1,44 @@
-var React = require('react');
-var classNames = require('classnames');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-var Tab = React.createClass({
-    displayName: 'Tab',
-    contextTypes: {
-        activeClassName: React.PropTypes.string.isRequired
-    }, 
-    propTypes: {
-        className: React.PropTypes.string,
-        id: React.PropTypes.number,
-        selected: React.PropTypes.bool,   
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.array,
-            React.PropTypes.object,
-            React.PropTypes.string
-        ])
-    },
-    getDefaultProp: function() {
-        return { selected: false, id: null };
-    },
+export default class Tab extends Component {
+    constructor(props) {
+        super(props);
 
-    onClick: function(event) {
-        event.preventDefault();      
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(event) {
+        event.preventDefault();
         this.props.handleClick(this.props.id);
-    },
+    }
 
-    render: function() {
+    render() {
         return (
-            <li className={classNames(this.props.className, { [this.context.activeClassName]: this.props.selected })} onClick={this.onClick}>                
-                { this.props.children }                
-            </li>                                  
+            <li className={classNames(this.props.className, { [this.context.activeClassName]: this.props.selected })} onClick={this.onClick}>
+                {this.props.children}
+            </li>
         );
     }
-});
+}
 
-module.exports = Tab;
+Tab.contextTypes = {
+    activeClassName: PropTypes.string.isRequired
+}
+
+Tab.propTypes = {
+    className: PropTypes.string,
+    id: PropTypes.number,
+    selected: PropTypes.bool,
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+        PropTypes.string
+    ])
+}
+
+Tab.defaultProps = {
+    selected: false,
+    id: null
+}

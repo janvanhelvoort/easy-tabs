@@ -1,31 +1,31 @@
-var React = require('react');
-var classNames = require('classnames');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-var Panel = React.createClass({
-    displayName: "Panel",
-    contextTypes: {
-        activeClassName: React.PropTypes.string.isRequired
-    }, 
-    propTypes: {
-        className: React.PropTypes.string,
-        selected: React.PropTypes.bool,   
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.array,
-            React.PropTypes.object,
-            React.PropTypes.string
-        ])
-    },    
-    getDefaultProps: function() {
-        return { selected: false };
-    },
-  
-    render: function(){    
+export default class Panel extends Component {
+    render(){
         return (
             <div className={ classNames( this.props.className, { [this.context.activeClassName]: this.props.selected })}>
                 { this.props.children }
             </div>           
          );
     }
-});
+}
 
-module.exports = Panel;
+Panel.contextTypes = {
+    activeClassName: PropTypes.string.isRequired
+}
+
+Panel.propTypes = {
+    className: PropTypes.string,
+    selected: PropTypes.bool,   
+    children: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+        PropTypes.string
+    ])
+}
+
+Panel.defaultProps = {
+    selected: false
+};
